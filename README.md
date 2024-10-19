@@ -115,7 +115,7 @@ The structure of the application is as follows:
 - Make sure you have an Android or iOS emulator set up if you want to test the application on a simulator.
 - To run the application on a physical device, download the Expo Go app from the app store and scan the QR code that appears in the browser window.
 
-## Valid Cities and Postal Codes
+## Valid Cities and Postal Codes for Consulting
 
 San Francisco
 Postal Code: 94103
@@ -128,6 +128,7 @@ Postal Code: 89101
 
 New York
 Postal Code: 10001
+
 
 
 ## Contributions
