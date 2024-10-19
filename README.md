@@ -50,7 +50,7 @@ Join our community of developers creating universal apps.
 - [Discord community](https://chat.expo.dev): Chat with Expo users and ask questions.
 
 
-Here's a basic README file in English that explains the application's structure, how to run it, and any dependencies:
+## App Test RealEstateSearchApp
 
 ```markdown
 # RealEstateSearchApp
@@ -120,9 +120,7 @@ If you wish to contribute to this project, feel free to open an `issue` or creat
 
 ## License
 This project is licensed under the MIT License. See the LICENSE file for more details.
-```
 
-Feel free to customize this README according to your specific project details and needs. If you have any other requests or need further modifications, just let me know!
 
 ## AI Tool Utilization
 
