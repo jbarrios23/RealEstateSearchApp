@@ -1,16 +1,35 @@
-import { Text, View, StyleSheet } from "react-native";
+import { Text, View, StyleSheet, TextInput, Button } from "react-native";
 import { Link } from 'expo-router';
+import { useState } from "react";
+import { useRouter } from "expo-router";
 
-export default function Index() {
+export default function SearchScreen() {
+
+  const [location, setLocation] = useState('')
+  const route = useRouter();
+
+  //voy a la pantall del mapa pasando la ubicacion por parametro
+
+
+  const handlerSearch = () => {
+    console.log("Location", location)
+    route.push({
+      pathname: 'screen/map',
+      params: { location }
+    });
+  };
+
   return (
     <View style={styles.container}>
-      <Text style={styles.text}>Home screen</Text>
-      <Link href="/screen/map" style={styles.button}>
-        Go to Map screen
-      </Link>
-      <Link href="/screen/property-details" style={styles.button}>
-        Go to P screen
-      </Link>
+      <TextInput
+        style={styles.input}
+        placeholder="Ingrese ciudad o código postal"
+        value={location}
+        onChangeText={setLocation}
+
+      />
+      <Button title="Buscar Propiedades" onPress={handlerSearch} />
+
     </View>
   );
 }
@@ -18,16 +37,14 @@ export default function Index() {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: '#25292e',
-    alignItems: 'center',
     justifyContent: 'center',
+    padding: 16,
   },
-  text: {
-    color: '#fff',
-  },
-  button: {
-    fontSize: 20,
-    textDecorationLine: 'underline',
-    color: '#fff',
+  input: {
+    height: 40,
+    borderColor: 'gray',
+    borderWidth: 1,
+    marginBottom: 16,
+    paddingHorizontal: 8,
   },
 });
