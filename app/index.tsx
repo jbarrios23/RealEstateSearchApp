@@ -5,7 +5,7 @@ import { useRouter } from "expo-router";
 
 export default function SearchScreen() {
 
-  const [location, setLocation] = useState('')
+  const [location, setLocation] = useState('Los Angeles')
   const route = useRouter();
 
   //voy a la pantall del mapa pasando la ubicacion por parametro
