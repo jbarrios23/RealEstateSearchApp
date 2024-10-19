@@ -27,7 +27,7 @@ export default function MapScreen() {
     longitudeDelta: 0.0421,
   });
 
-  const { location } = useLocalSearchParams(); // Cambiar a useLocalSearchParams
+  const { location } = useLocalSearchParams(); 
   const router = useRouter();
 
   useEffect(() => {
@@ -62,7 +62,7 @@ export default function MapScreen() {
               longitude: property.longitude,
             }}
             onPress={() => router.push({
-              pathname: '/property-details',
+              pathname: 'screen/property-details',
               params: { property: JSON.stringify(property) }
             })}
           >

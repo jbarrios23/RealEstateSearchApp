@@ -3,23 +3,45 @@
       "id": "1",
       "price": 250000,
       "address": "123 Main St",
-      "description": "Beautiful 3-bedroom house",
+      "description": "Beautiful 3-bedroom house located near the city center, with a spacious backyard.",
       "latitude": 37.7749,
       "longitude": -122.4194,
       "city": "San Francisco",
       "postalCode": "94103",
-      "image": "https://example.com/image1.jpg"
+      "image": "https://images.pexels.com/photos/1396122/pexels-photo-1396122.jpeg"
     },
     {
       "id": "2",
       "price": 350000,
       "address": "456 Oak St",
-      "description": "Spacious 4-bedroom home",
+      "description": "Spacious 4-bedroom home with modern amenities and a large front yard.",
       "latitude": 34.0522,
       "longitude": -118.2437,
       "city": "Los Angeles",
       "postalCode": "90001",
-      "image": "https://example.com/image2.jpg"
+      "image": "https://images.pexels.com/photos/106399/pexels-photo-106399.jpeg"
+    },
+    {
+      "id": "3",
+      "price": 450000,
+      "address": "789 Pine St",
+      "description": "Luxurious 5-bedroom home in a quiet neighborhood with stunning mountain views.",
+      "latitude": 36.1699,
+      "longitude": -115.1398,
+      "city": "Las Vegas",
+      "postalCode": "89101",
+      "image": "https://images.pexels.com/photos/259588/pexels-photo-259588.jpeg"
+    },
+    {
+      "id": "4",
+      "price": 600000,
+      "address": "101 Maple St",
+      "description": "Modern 6-bedroom house with a pool, located in a private community.",
+      "latitude": 40.7128,
+      "longitude": -74.0060,
+      "city": "New York",
+      "postalCode": "10001",
+      "image": "https://images.pexels.com/photos/462235/pexels-photo-462235.jpeg"
     }
   ]
   
