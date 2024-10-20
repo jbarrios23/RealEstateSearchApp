@@ -1,15 +1,15 @@
 import React, { useEffect, useState } from 'react';
 import { View, StyleSheet, Image, Text } from 'react-native';
 import MapView, { Marker, Region } from 'react-native-maps';
-import { useLocalSearchParams, useRouter } from "expo-router"; // Cambiar a useLocalSearchParams
+import { useLocalSearchParams, useRouter } from "expo-router"; 
 import properties from '../data/properties.json';
 
-// Tipo para las propiedades
+
 interface Property {
-  id: string;        // Puede ser number si lo es en el JSON
-  price: number;     // Agregamos el precio
+  id: string;       
+  price: number;     
   address: string;
-  description: string; // Agregamos la descripción
+  description: string; 
   latitude: number;
   longitude: number;
   city: string;
