@@ -1,10 +1,10 @@
 import { Text, View, StyleSheet, TextInput, TouchableOpacity } from "react-native";
 import { useRouter } from "expo-router";
 import { useState } from "react";
-import properties from './data/properties.json'; // Ensure the path is correct
+import properties from './data/properties.json'; 
 
 export default function SearchScreen() {
-  const [location, setLocation] = useState('San Francisco');
+  const [location, setLocation] = useState('');
   const [errorMessage, setErrorMessage] = useState('');
   const router = useRouter();
 
@@ -22,7 +22,7 @@ export default function SearchScreen() {
     );
 
     if (matchedProperties.length > 0) {
-      setErrorMessage(''); // Clear error message if there are matches
+      setErrorMessage(''); 
       router.push({
         pathname: 'screen/map',
         params: { location }
@@ -73,7 +73,7 @@ const styles = StyleSheet.create({
     fontSize: 16,
     textAlign: 'center',
     marginBottom: 20,
-    color: '#555', // Color gris para el texto
+    color: '#555', 
   },
   input: {
     height: 50,
@@ -91,12 +91,12 @@ const styles = StyleSheet.create({
     alignItems: 'center', 
   },
   buttonText: {
-    color: '#fff', // Color del texto
+    color: '#fff', 
     fontSize: 16,
     fontWeight: 'bold',
   },
   error: {
-    color: 'red', // Color del texto de error
+    color: 'red', 
     textAlign: 'center',
     marginBottom: 10,
   },

@@ -3,7 +3,7 @@ import { View, Text, StyleSheet, Image, ScrollView,TouchableOpacity } from 'reac
 import { useLocalSearchParams, useRouter } from 'expo-router';
 
 export default function PropertyDetails() {
-  const { property } = useLocalSearchParams(); // Receives property from params
+  const { property } = useLocalSearchParams(); 
   const router = useRouter();
 
   const parsedProperty = property ? JSON.parse(property as string) : null;
