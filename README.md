@@ -129,6 +129,27 @@ Postal Code: 89101
 New York
 Postal Code: 10001
 
+## Images
+
+# Android
+
+![alt text](image.png){ width=50% }
+
+![alt text](image-1.png){ width=50% }
+
+![alt text](image-2.png){ width=50% } 
+
+
+# iOS
+
+![alt text](<Imagen de WhatsApp 2024-10-21 a las 09.39.09_36152fab.jpg>){ width=50% }
+
+![alt text](<Imagen de WhatsApp 2024-10-21 a las 09.39.10_2ac76d2a.jpg>){ width=50% }
+
+![alt text](<Imagen de WhatsApp 2024-10-21 a las 09.39.10_8ecd1a1d.jpg>){ width=50% }
+
+![alt text](<Imagen de WhatsApp 2024-10-21 a las 09.39.08_11001856.jpg>){ width=50% }
+
 
 
 ## Contributions
