@@ -133,22 +133,22 @@ Postal Code: 10001
 
 # Android
 
-![alt text](image.png){ width=50% }
+<img src="image.png" alt="alt text" width="50%" />
 
-![alt text](image-1.png){ width=50% }
+<img src="image-1.png" alt="alt text" width="50%" />
 
-![alt text](image-2.png){ width=50% } 
-
+<img src="image-2.png" alt="alt text" width="50%" />
 
 # iOS
 
-![alt text](<Imagen de WhatsApp 2024-10-21 a las 09.39.09_36152fab.jpg>){ width=50% }
+<img src="Imagen de WhatsApp 2024-10-21 a las 09.39.09_36152fab.jpg" alt="alt text" width="50%" />
 
-![alt text](<Imagen de WhatsApp 2024-10-21 a las 09.39.10_2ac76d2a.jpg>){ width=50% }
+<img src="Imagen de WhatsApp 2024-10-21 a las 09.39.10_2ac76d2a.jpg" alt="alt text" width="50%" />
 
-![alt text](<Imagen de WhatsApp 2024-10-21 a las 09.39.10_8ecd1a1d.jpg>){ width=50% }
+<img src="Imagen de WhatsApp 2024-10-21 a las 09.39.10_8ecd1a1d.jpg" alt="alt text" width="50%" />
 
-![alt text](<Imagen de WhatsApp 2024-10-21 a las 09.39.08_11001856.jpg>){ width=50% }
+<img src="Imagen de WhatsApp 2024-10-21 a las 09.39.08_11001856.jpg" alt="alt text" width="50%" />
+
 
 
 
