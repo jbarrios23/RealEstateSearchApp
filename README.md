@@ -129,27 +129,72 @@ Postal Code: 89101
 New York
 Postal Code: 10001
 
-## Images
+# Json propeties file:
 
-# Android
+```Json
+[
+    {
+      "id": "1",
+      "price": 250000,
+      "address": "123 Main St",
+      "description": "Beautiful 3-bedroom house located near the city center, with a spacious backyard.",
+      "latitude": 37.7749,
+      "longitude": -122.4194,
+      "city": "San Francisco",
+      "postalCode": "94103",
+      "image": "https://images.pexels.com/photos/1396122/pexels-photo-1396122.jpeg"
+    },
+    {
+      "id": "2",
+      "price": 350000,
+      "address": "456 Oak St",
+      "description": "Spacious 4-bedroom home with modern amenities and a large front yard.",
+      "latitude": 34.0522,
+      "longitude": -118.2437,
+      "city": "Los Angeles",
+      "postalCode": "90001",
+      "image": "https://images.pexels.com/photos/106399/pexels-photo-106399.jpeg"
+    },
+    {
+      "id": "3",
+      "price": 450000,
+      "address": "789 Pine St",
+      "description": "Luxurious 5-bedroom home in a quiet neighborhood with stunning mountain views.",
+      "latitude": 36.1699,
+      "longitude": -115.1398,
+      "city": "Las Vegas",
+      "postalCode": "89101",
+      "image": "https://images.pexels.com/photos/259588/pexels-photo-259588.jpeg"
+    },
+    {
+      "id": "4",
+      "price": 600000,
+      "address": "101 Maple St",
+      "description": "Modern 6-bedroom house with a pool, located in a private community.",
+      "latitude": 40.7128,
+      "longitude": -74.0060,
+      "city": "New York",
+      "postalCode": "10001",
+      "image": "https://images.pexels.com/photos/462235/pexels-photo-462235.jpeg"
+    }
+  ]
+  
+```
 
-<img src="image.png" alt="alt text" width="50%" />
+# Images 
 
-<img src="image-1.png" alt="alt text" width="50%" />
+## Screenshots Android
 
-<img src="image-2.png" alt="alt text" width="50%" />
-
-# iOS
-
-<img src="Imagen de WhatsApp 2024-10-21 a las 09.39.09_36152fab.jpg" alt="alt text" width="50%" />
-
-<img src="Imagen de WhatsApp 2024-10-21 a las 09.39.10_2ac76d2a.jpg" alt="alt text" width="50%" />
-
-<img src="Imagen de WhatsApp 2024-10-21 a las 09.39.10_8ecd1a1d.jpg" alt="alt text" width="50%" />
-
-<img src="Imagen de WhatsApp 2024-10-21 a las 09.39.08_11001856.jpg" alt="alt text" width="50%" />
+| Search Screen | Map Screen | Detail Property Screen |
+|-------------------|-------------------|----------------|
+| <img src="image.png" width="250"/> | <img src=image-1.png width="250"/> | <img src=image-2.png width="250"/> |
 
 
+## Screenshots iOS
+
+| Search Screen | Search Screen | Map Screen | Detail Property Screen |
+|-------------------|-------------------|----------------|----------------|
+| <img src="Imagen de WhatsApp 2024-10-21 a las 09.39.09_36152fab.jpg" width="250"/> | <img src="Imagen de WhatsApp 2024-10-21 a las 09.39.10_2ac76d2a.jpg" width="250"/> | <img src="Imagen de WhatsApp 2024-10-21 a las 09.39.10_8ecd1a1d.jpg" width="250"/> | <img src="Imagen de WhatsApp 2024-10-21 a las 09.39.08_11001856.jpg" width="250"/> |
 
 
 ## Contributions
