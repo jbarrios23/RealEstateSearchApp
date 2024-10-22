@@ -129,7 +129,7 @@ Postal Code: 89101
 New York
 Postal Code: 10001
 
-# Json propeties file:
+# Json Properties file:
 
 ```Json
 [
