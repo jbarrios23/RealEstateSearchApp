@@ -1,13 +1,39 @@
 import { Text, View, StyleSheet, TextInput, TouchableOpacity } from "react-native";
 import { useRouter } from "expo-router";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import properties from './data/properties.json'; 
 
 export default function SearchScreen() {
   const [location, setLocation] = useState('');
   const [errorMessage, setErrorMessage] = useState('');
   const router = useRouter();
+  const [loading,setLoading]=useState(false);
+  const [propertiies, setProperties] = useState([]);
 
+  
+  const fecthProperties= async ()=>{
+    try{
+
+      setLoading(true)
+      const response=await fetch('http://192.168.1.107:8080/location');
+      if(!response.ok) throw new Error('Error fetching properties');
+      const data =await response.json();
+      console.log("Location Data",data)
+      setProperties(data);
+
+    }catch (error) {
+      setErrorMessage('Could not fetch properties. Please try again later.');
+      console.error(error);
+    } finally {
+      setLoading(false);
+    }
+  };
+
+  useEffect(()=>{
+    fecthProperties();
+  },[])
+  
+  
   const handleSearch = () => {
     if (location.length === 0) {
       setErrorMessage('Please enter a city or postal code.'); // Error message for empty input
