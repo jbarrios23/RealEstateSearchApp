@@ -11,13 +11,14 @@ export default function SearchScreen() {
 
   const handleSearch = () => {
     console.log("Location", location)
-    const trimmedLocation = location.trim();
-    if (trimmedLocation.length === 0) {
+    const locationTrimed=location.trim();
+    
+    if (location.length === 0) {
       setErrorMessage('Please enter a city or postal code.'); // Error message for empty input
       return;
     }
 
-    const matchedProperties = searchProperties(trimmedLocation);
+    const matchedProperties = searchProperties(locationTrimed);
     console.log("P", matchedProperties)
 
     if (matchedProperties.length > 0) {
@@ -33,10 +34,10 @@ export default function SearchScreen() {
 
   return (
     <View style={styles.container}>
-    <Text style={styles.title}>Buscar Propiedades</Text>
+    <Text style={styles.title}>Search Properties</Text>
     <TextInput
       style={styles.input}
-      placeholder="Ingresa ciudad o código postal"
+      placeholder="Enter city or zip code"
       value={location}
       onChangeText={setLocation}
     />

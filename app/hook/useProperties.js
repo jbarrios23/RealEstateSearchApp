@@ -11,10 +11,10 @@ export default function useProperties() {
     const loadProperties = async () => {
       setLoading(true);
       const { data, error } = await fetchProperties();
-
+      console.log("Datos ",data)
       if (error) {
         setErrorMessage("No se pudieron cargar los datos en línea. Usando datos locales.");
-        setProperties(backupProperties); // Usar datos locales como respaldo
+        setProperties(backupProperties); 
       } else {
         setErrorMessage('');
         setProperties(data);
@@ -28,6 +28,7 @@ export default function useProperties() {
 
   const searchProperties = (location) => {
     const normalizedLocation = location.trim().toLowerCase();
+    console.log("searchProperties ",properties)
     if (!properties || properties.length === 0) return []; 
     return properties.filter(property =>
       property.city.toLowerCase() === normalizedLocation ||

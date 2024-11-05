@@ -28,7 +28,7 @@ export async function fetchProperties() {
 
         console.log("Local P Error Net", localProperties)
         console.log("Error Net", error)
-        return localProperties;
+        return { data: localProperties, error: error.message };  
 
     }
 }
