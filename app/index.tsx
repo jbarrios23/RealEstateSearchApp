@@ -1,59 +1,57 @@
-import { Text, View, StyleSheet, TextInput, TouchableOpacity } from "react-native";
+import { Text, View, StyleSheet, TextInput, TouchableOpacity,ActivityIndicator } from "react-native";
 import { useRouter } from "expo-router";
-import { useState } from "react";
-import properties from './data/properties.json'; 
+import { useEffect, useState } from "react";
+import useProperties from './hook/useProperties';
 
 export default function SearchScreen() {
   const [location, setLocation] = useState('');
   const [errorMessage, setErrorMessage] = useState('');
   const router = useRouter();
+  const { properties, loading, errorMessage: fetchError, searchProperties } = useProperties();
 
   const handleSearch = () => {
+    console.log("Location", location)
+    const locationTrimed=location.trim();
+    
     if (location.length === 0) {
       setErrorMessage('Please enter a city or postal code.'); // Error message for empty input
       return;
     }
 
-    // Check if there are matching properties
-    const matchedProperties = properties.filter(property => 
-      property.city.toLowerCase() === location.toLowerCase() ||
-      property.city.toLowerCase() === location.trim() || 
-      property.postalCode === location.trim()
-    );
+    const matchedProperties = searchProperties(locationTrimed);
+    console.log("P", matchedProperties)
 
     if (matchedProperties.length > 0) {
-      setErrorMessage(''); 
+      setErrorMessage('');
       router.push({
         pathname: 'screen/map',
         params: { location }
       });
     } else {
-      setErrorMessage('No properties found in this location.'); // Error message for no properties found
+      setErrorMessage('No properties found in this location.');
     }
   };
 
   return (
     <View style={styles.container}>
-      <Text style={styles.title}>Search Properties</Text>
-      <Text style={styles.instruction}>
-        Enter the name of a city or a postal code in the search field below 
-        and press the "Search Properties" button. This will show you a map 
-        with the available properties in the specified location.
-      </Text>
-      <TextInput
-        style={styles.input}
-        placeholder="Enter city or postal code"
-        value={location}
-        onChangeText={setLocation}
-        autoCapitalize="words"
-        autoCorrect={false}
-      />
-      {errorMessage ? <Text style={styles.error}>{errorMessage}</Text> : null}
+    <Text style={styles.title}>Search Properties</Text>
+    <TextInput
+      style={styles.input}
+      placeholder="Enter city or zip code"
+      value={location}
+      onChangeText={setLocation}
+    />
+    {fetchError ? <Text style={styles.error}>{fetchError}</Text> : null}
+    {errorMessage ? <Text style={styles.error}>{errorMessage}</Text> : null}
+    {loading ? (
+      <ActivityIndicator size="large" color="#007BFF" />
+    ) : (
       <TouchableOpacity style={styles.button} onPress={handleSearch}>
-        <Text style={styles.buttonText}>Search Properties</Text>
+        <Text style={styles.buttonText}>Buscar Propiedades</Text>
       </TouchableOpacity>
-    </View>
-  );
+    )}
+  </View>
+);
 }
 
 const styles = StyleSheet.create({
@@ -73,7 +71,7 @@ const styles = StyleSheet.create({
     fontSize: 16,
     textAlign: 'center',
     marginBottom: 20,
-    color: '#555', 
+    color: '#555',
   },
   input: {
     height: 50,
@@ -84,19 +82,19 @@ const styles = StyleSheet.create({
     paddingHorizontal: 10,
   },
   button: {
-    backgroundColor: '#007BFF', 
+    backgroundColor: '#007BFF',
     paddingVertical: 12,
     paddingHorizontal: 16,
-    borderRadius: 20, 
-    alignItems: 'center', 
+    borderRadius: 20,
+    alignItems: 'center',
   },
   buttonText: {
-    color: '#fff', 
+    color: '#fff',
     fontSize: 16,
     fontWeight: 'bold',
   },
   error: {
-    color: 'red', 
+    color: 'red',
     textAlign: 'center',
     marginBottom: 10,
   },
