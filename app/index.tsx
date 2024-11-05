@@ -1,14 +1,21 @@
 import { Text, View, StyleSheet, TextInput, TouchableOpacity } from "react-native";
 import { useRouter } from "expo-router";
 import { useEffect, useState } from "react";
-import properties from './data/properties.json'; 
+import localProperties from './data/properties.json';  
+
+// Definición del tipo de cada propiedad
+type Property = {
+  city: string;
+  postalCode: string;
+  // otros campos si los tienes
+};
 
 export default function SearchScreen() {
   const [location, setLocation] = useState('');
   const [errorMessage, setErrorMessage] = useState('');
   const router = useRouter();
   const [loading,setLoading]=useState(false);
-  const [propertiies, setProperties] = useState([]);
+  const [properties, setProperties] = useState<Property[]>([]);
 
   
   const fecthProperties= async ()=>{
@@ -16,34 +23,61 @@ export default function SearchScreen() {
 
       setLoading(true)
       const response=await fetch('http://192.168.1.107:8080/location');
-      if(!response.ok) throw new Error('Error fetching properties');
+      if (!response.ok) {
+        let errorMessage = 'Error fetching properties';
+        
+        switch (response.status) {
+          case 404:
+            errorMessage = 'Properties not found';
+            break;
+          case 500:
+            errorMessage = 'Server error, please try again later';
+            break;
+          default:
+            errorMessage = `Unexpected error: ${response.status}`;
+        }
+      
+        throw new Error(errorMessage);
+      }
       const data =await response.json();
       console.log("Location Data",data)
       setProperties(data);
 
     }catch (error) {
       setErrorMessage('Could not fetch properties. Please try again later.');
-      console.error(error);
+      console.log("Local P Error Net",localProperties)
+      setProperties(localProperties)
+      //console.error(error);
     } finally {
       setLoading(false);
     }
   };
 
   useEffect(()=>{
+    console.log("start","")
     fecthProperties();
   },[])
   
   
   const handleSearch = () => {
+    console.log("P",properties)
     if (location.length === 0) {
       setErrorMessage('Please enter a city or postal code.'); // Error message for empty input
       return;
     }
 
-    // Check if there are matching properties
+    
+    // const matchedProperties = properties.filter(property => 
+    //   property.city.toLowerCase() === location.toLowerCase() ||
+    //   property.city.toLowerCase() === location.trim() || 
+    //   property.postalCode === location.trim()
+    // );
+
+    const normalizedLocation = location.trim().toLowerCase();
+
     const matchedProperties = properties.filter(property => 
       property.city.toLowerCase() === location.toLowerCase() ||
-      property.city.toLowerCase() === location.trim() || 
+      property.city.toLowerCase() === normalizedLocation || 
       property.postalCode === location.trim()
     );
 
@@ -54,7 +88,7 @@ export default function SearchScreen() {
         params: { location }
       });
     } else {
-      setErrorMessage('No properties found in this location.'); // Error message for no properties found
+      setErrorMessage('No properties found in this location.'); 
     }
   };
 
