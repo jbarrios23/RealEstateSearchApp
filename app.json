@@ -1,5 +1,5 @@
 {
-  "expo": {
+  "expo": {    
     "name": "RealEstateSearchApp",
     "slug": "RealEstateSearchApp",
     "version": "1.0.0",
@@ -21,8 +21,18 @@
       "adaptiveIcon": {
         "foregroundImage": "./assets/images/adaptive-icon.png",
         "backgroundColor": "#ffffff"
+      },
+      "config": { 
+        "googleMaps": { 
+          "apiKey": "AIzaSyCMHrfRASUmHZzL2xlVKR3nDB2YDGlcM-c" 
+        },
+        "networkSecurityConfig": { 
+           "cleartextTrafficPermitted": true,
+           "domains": ["192.168.1.107"]  
+          }
       }
     },
+    "permissions": ["INTERNET", "ACCESS_NETWORK_STATE"],
     "web": {
       "bundler": "metro",
       "output": "static",

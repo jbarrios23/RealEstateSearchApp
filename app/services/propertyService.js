@@ -2,8 +2,9 @@ import localProperties from '../data/properties.json'
 
 export async function fetchProperties() {
     try {
-
-        const response = await fetch('http://192.168.1.107:8080/location');
+        const url='http://192.168.1.107:8080/location';
+        const response = await fetch(url);
+        console.log('URL',url)
         if (!response.ok) {
             let errorMessage = 'Error fetching properties';
 
