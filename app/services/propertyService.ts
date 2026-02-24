@@ -1,8 +1,24 @@
-import localProperties from '../data/properties.json'
+interface Property {
+  id: string;
+  price: number;
+  address: string;
+  description: string;
+  latitude: number;
+  longitude: number;
+  city: string;
+  postalCode: string;
+  image: string;
+}
 
-export async function fetchProperties() {
+interface PropertyResponse {
+  data: Property[];
+  error: string | null;
+}
+
+import localProperties from '../data/properties.json';
+
+export async function fetchProperties(): Promise<PropertyResponse> {
     try {
-
         const response = await fetch('http://192.168.1.107:8080/location');
         if (!response.ok) {
             let errorMessage = 'Error fetching properties';
@@ -21,14 +37,15 @@ export async function fetchProperties() {
             throw new Error(errorMessage);
         }
         const data = await response.json();
-        console.log("Location Data", data)
+        console.log("Location Data", data);
         return { data: Array.isArray(data) ? data : [], error: null };   
 
     } catch (error) {
-
-        console.log("Local P Error Net", localProperties)
-        console.log("Error Net", error)
-        return { data: localProperties, error: error.message };  
-
+        console.log("Local P Error Net", localProperties);
+        console.log("Error Net", error);
+        return { 
+            data: localProperties as Property[], 
+            error: error instanceof Error ? error.message : 'Unknown error'
+        };  
     }
 }

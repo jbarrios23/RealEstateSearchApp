@@ -33,10 +33,11 @@ export default function MapScreen() {
   useEffect(() => {
     if (!location) return;
 
+    const locationStr = Array.isArray(location) ? location[0] : location;
     const filtered = properties.filter(
       (property: Property) =>
-        property.city.toLowerCase() === location.toLowerCase() ||
-        property.postalCode === location
+        property.city.toLowerCase() === locationStr.toLowerCase() ||
+        property.postalCode === locationStr
     );
     setFilteredProperties(filtered);
 
@@ -62,7 +63,7 @@ export default function MapScreen() {
               longitude: property.longitude,
             }}
             onPress={() => router.push({
-              pathname: 'screen/property-details',
+              pathname: '/screen/property-details',
               params: { property: JSON.stringify(property) }
             })}
           >
