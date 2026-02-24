@@ -24,7 +24,7 @@ export default function SearchScreen() {
     if (matchedProperties.length > 0) {
       setErrorMessage('');
       router.push({
-        pathname: 'screen/map',
+        pathname: '/screen/map',
         params: { location }
       });
     } else {
